@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecionando...</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #8A2BE2; /* fundo violeta */
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .contador {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Aguarde, redirecionando para o anúncio...</h1>
+        <p>Depois, você será levado à página de produtos.</p>
+        <p class="contador" id="contador">5</p>
+    </div>
+
+    <script>
+        // Abre o anúncio em nova aba
+        window.open("https://otieu.com/4/10215868", "_blank");
+
+        // Contador regressivo
+        let tempo = 5; // segundos
+        const contador = document.getElementById("contador");
+
+        const intervalo = setInterval(() => {
+            tempo--;
+            contador.textContent = tempo;
+            if (tempo <= 0) {
+                clearInterval(intervalo);
+                // Redireciona para a página de produtos
+                window.location.href = "produtos.html";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
