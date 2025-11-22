@@ -1,49 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <title>Redirecionando...</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #8A2BE2; /* fundo violeta */
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .contador {
-            font-size: 20px;
-            margin-top: 10px;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Redirecionando...</title>
+<style>
+body { display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh; background-color:#8A2BE2; color:white; font-family:Arial; text-align:center; }
+iframe { width:90%; height:60vh; border:none; margin-bottom:20px; }
+.contador { font-size:20px; }
+</style>
 </head>
 <body>
-    <div>
-        <h1>Aguarde, redirecionando para o anúncio...</h1>
-        <p>Depois, você será levado à página de produtos.</p>
-        <p class="contador" id="contador">5</p>
-    </div>
+<h1>Aguarde, vendo o anúncio...</h1>
+<p class="contador" id="contador">5</p>
 
-    <script>
-        // Abre o anúncio em nova aba
-        window.open("https://otieu.com/4/10215868", "_blank");
+<iframe src="https://otieu.com/4/10215868"></iframe>
 
-        // Contador regressivo
-        let tempo = 5; // segundos
-        const contador = document.getElementById("contador");
-
-        const intervalo = setInterval(() => {
-            tempo--;
-            contador.textContent = tempo;
-            if (tempo <= 0) {
-                clearInterval(intervalo);
-                // Redireciona para a página de produtos
-                window.location.href = "products.html";
-            }
-        }, 1000);
-    </script>
+<script>
+let tempo = 5;
+const contador = document.getElementById("contador");
+const intervalo = setInterval(() => {
+    tempo--;
+    contador.textContent = tempo;
+    if(tempo <= 0) {
+        clearInterval(intervalo);
+        window.location.href = "products.html";
+    }
+},1000);
+</script>
 </body>
 </html>
