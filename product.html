@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Detalhes do produto — DZM Corretor</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <main class="container">
+    <div class="back-row">
+      <button onclick="history.back()" class="btn-outline">← Voltar</button>
+      <a class="btn-primary" href="products.html">Voltar aos produtos</a>
+    </div>
+
+    <section id="detail" class="detail-card"></section>
+
+    <section class="creator">
+      <h3>Sobre o criador do site</h3>
+      <p>WhatsApp: <a href="https://wa.me/244997711838" target="_blank">+244 997 711 838</a></p>
+    </section>
+  </main>
+
+  <script src="assets/products.js"></script>
+  <script>
+    // pega id da query
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const detail = document.getElementById('detail');
+
+    const product = PRODUCTS.find(p => p.id === id);
+
+    if (!product) {
+      detail.innerHTML = '<p>Produto não encontrado.</p>';
+    } else {
+      detail.innerHTML = `
+        <h1>${product.title}</h1>
+        <p class="price large">${product.price}</p>
+        <div class="gallery">
+          ${product.images.map(i => `<img src="${i}" alt="${product.title}" loading="lazy">`).join('')}
+        </div>
+        <div class="meta">
+          <p><strong>Localização:</strong> ${product.location || '—'}</p>
+          <p>${product.description || ''}</p>
+          <p><strong>Contacto:</strong> ${product.contact ? '<a href="tel:'+product.contact+'">'+product.contact+'</a>' : '—'}</p>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
