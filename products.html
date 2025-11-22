@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Produtos — DZM Corretor</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <main class="container">
+    <header class="products-header">
+      <h1>Produtos</h1>
+      <p>Escolha por categoria para filtrar os anúncios.</p>
+    </header>
+
+    <nav class="categories">
+      <button class="cat-btn active" data-cat="all">Todos</button>
+      <button class="cat-btn" data-cat="casas">Casas</button>
+      <button class="cat-btn" data-cat="terrenos">Terrenos</button>
+      <button class="cat-btn" data-cat="carros">Carros</button>
+      <button class="cat-btn" data-cat="telefones">Tecnologia / Telefones</button>
+      <button class="cat-btn" data-cat="outros">Outros</button>
+    </nav>
+
+    <section id="productsGrid" class="grid"></section>
+
+    <section class="creator">
+      <h3>Sobre o criador do site</h3>
+      <p>Para informações e suporte contacte via WhatsApp: <a href="https://wa.me/244997711838" target="_blank">+244 997 711 838</a></p>
+    </section>
+  </main>
+
+  <script src="assets/products.js"></script>
+  <script>
+    // Renderiza os produtos e aplica os filtros
+    const grid = document.getElementById('productsGrid');
+    const catBtns = document.querySelectorAll('.cat-btn');
+
+    function renderList(list) {
+      grid.innerHTML = '';
+      if (!list.length) {
+        grid.innerHTML = '<p class="empty">Sem produtos nesta categoria.</p>';
+        return;
+      }
+      list.forEach(p => {
+        const card = document.createElement('article');
+        card.className = 'prod-card';
+        card.innerHTML = `
+          <img src="${p.images[0] || ''}" alt="${p.title}" loading="lazy">
+          <div class="prod-info">
+            <h4>${p.title}</h4>
+            <div class="price">${p.price}</div>
+            <div class="actions">
+              <a class="btn-outline" href="product.html?id=${encodeURIComponent(p.id)}">Ver detalhes</a>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // inicialmente todos
+    renderList(PRODUCTS);
+
+    // filtro por categoria
+    catBtns.forEach(b => b.addEventListener('click', () => {
+      catBtns.forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      const cat = b.dataset.cat;
+      if (cat === 'all') renderList(PRODUCTS);
+      else renderList(PRODUCTS.filter(p => p.category === cat));
+    }));
+  </script>
+</body>
+</html>
