@@ -1,87 +1,128 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DZM Corretor de Imóveis — Zacarias</title>
-  <link rel="stylesheet" href="assets/styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zacarias • Corretor de Imóveis</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: #fff;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .header p {
+            font-size: 18px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 35px 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+        }
+
+        .card h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .info {
+            margin-top: 25px;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 25px;
+            background: #fff;
+            color: #ff784f;
+            font-weight: 700;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #ffe1d6;
+        }
+    </style>
 </head>
+
 <body>
-  <header class="hero">
+
     <div class="container">
-      <button id="adNoticeBtn" class="btn-outline">Ver produtos</button>
 
-      <h1 class="title"><span class="big">DZM</span> <span class="big">Corretor de Imóveis</span></h1>
-      <p class="subtitle">Zacarias intermediário mais rápido oh Executivo</p>
-
-      <section class="card intro">
-        <h2>Conheça Zacarias</h2>
-        <p>
-          Zacarias é um <strong>intermediário experiente</strong>, atuando há mais de <strong>4 anos no mercado de Cabinda</strong>.
-          Reconhecido pela sua seriedade, transparência e capacidade de conectar clientes às melhores oportunidades, ele construiu
-          uma reputação sólida baseada em confiança e eficiência.
-        </p>
-        <p>
-          Com profundo conhecimento do mercado local, Zacarias auxilia na mediação de negócios, resolução de pendências e
-          facilitação de processos, sempre oferecendo um atendimento personalizado e rápido.
-        </p>
-        <p>
-          Profissional comprometido, sempre disponível para garantir que cada cliente tenha uma experiência segura, clara e objetiva.
-        </p>
-
-        <div class="contact-row">
-          <div><strong>Telefone:</strong> <a href="tel:+244924829157">924 829 157</a></div>
-          <div><strong>Cidade:</strong> Cabinda</div>
+        <div class="header">
+            <h1>Zacarias</h1>
+            <p>O corretor de imóveis mais rápido e eficiente de Cabinda</p>
         </div>
 
-        <div class="center">
-          <button id="goProducts" class="btn-primary">Ver Produtos</button>
+        <div class="card">
+            <h2>Conheça Zacarias</h2>
+
+            <p>
+                Zacarias é um <strong>intermediário experiente</strong>, atuando há mais de 
+                <strong>4 anos no mercado de Cabinda</strong>. Reconhecido pela sua seriedade, 
+                transparência e capacidade de conectar clientes às melhores oportunidades, 
+                ele construiu uma reputação sólida baseada em confiança e eficiência.
+            </p>
+
+            <p>
+                Com profundo conhecimento do mercado local, Zacarias auxilia na mediação de 
+                negócios, resolução de pendências e facilitação de processos, sempre oferecendo 
+                um atendimento personalizado e rápido.
+            </p>
+
+            <p>
+                Profissional comprometido, está sempre disponível para garantir que cada cliente 
+                tenha uma experiência segura, clara e objetiva.
+            </p>
+
+            <div class="info">
+                📞 <strong>Telefone:</strong> 924 829 157 <br>
+                📍 <strong>Cidade:</strong> Cabinda
+            </div>
+
+            <a class="button" href="#">Ver Produtos</a>
         </div>
-      </section>
+
     </div>
-  </header>
 
-  <!-- Modal/Interstitial do anúncio antes de ir para produtos -->
-  <div id="adModal" class="modal hidden" role="dialog" aria-modal="true">
-    <div class="modal-content">
-      <h3>Anúncio</h3>
-      <p>Antes de ver os produtos, confira este anúncio recomendado.</p>
-      <div class="ad-actions">
-        <a class="btn-outline" href="https://otieu.com/4/10215868" target="_blank" rel="noopener noreferrer">Abrir Anúncio</a>
-        <button id="continueToProducts" class="btn-primary">Continuar para Produtos</button>
-      </div>
-      <button id="closeAd" class="modal-close" aria-label="Fechar">×</button>
-    </div>
-  </div>
-
-  <footer class="site-footer">
-    <div class="container">
-      <small>© <strong>DZM Corretor</strong> — Intermediário em Cabinda.</small>
-    </div>
-  </footer>
-
-  <script>
-    // Lógica do modal e redirecionamento
-    const adModal = document.getElementById('adModal');
-    const adNoticeBtn = document.getElementById('adNoticeBtn');
-    const goProducts = document.getElementById('goProducts');
-    const continueToProducts = document.getElementById('continueToProducts');
-    const closeAd = document.getElementById('closeAd');
-
-    function showAd() {
-      adModal.classList.remove('hidden');
-    }
-    function hideAd() {
-      adModal.classList.add('hidden');
-    }
-    function toProducts() {
-      window.location.href = 'products.html';
-    }
-
-    adNoticeBtn.addEventListener('click', showAd);
-    goProducts.addEventListener('click', showAd);
-    continueToProducts.addEventListener('click', () => { hideAd(); toProducts(); });
-    closeAd.addEventListener('click', hideAd);
-  </script>
 </body>
 </html>
